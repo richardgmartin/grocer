@@ -18,6 +18,8 @@
 		79A503901DCE06CB00BD126B /* LoginButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A5038F1DCE06CB00BD126B /* LoginButtonStyle.swift */; };
 		79A503921DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A503911DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift */; };
 		79A503951DCE308000BD126B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A503941DCE308000BD126B /* Constants.swift */; };
+		79A503981DCE651100BD126B /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A503971DCE651100BD126B /* GroceryListTableViewController.swift */; };
+		79A5039A1DCE653900BD126B /* OnlineUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A503991DCE653900BD126B /* OnlineUserTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,9 @@
 		79A5038F1DCE06CB00BD126B /* LoginButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButtonStyle.swift; sourceTree = "<group>"; };
 		79A503911DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailPasswordTextFieldStyle.swift; sourceTree = "<group>"; };
 		79A503941DCE308000BD126B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		79A503971DCE651100BD126B /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
+		79A503991DCE653900BD126B /* OnlineUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineUserTableViewController.swift; sourceTree = "<group>"; };
+		79A5039B1DCE668700BD126B /* Grocer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Grocer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +85,7 @@
 		7939EDE11DCD170300E09AB9 /* Grocer */ = {
 			isa = PBXGroup;
 			children = (
+				79A5039B1DCE668700BD126B /* Grocer.entitlements */,
 				79A503961DCE33E000BD126B /* layouts */,
 				79A5038D1DCE01D900BD126B /* controllers */,
 				79A5038E1DCE06A600BD126B /* styles */,
@@ -97,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				79A5038B1DCE01D100BD126B /* LoginViewController.swift */,
+				79A503971DCE651100BD126B /* GroceryListTableViewController.swift */,
+				79A503991DCE653900BD126B /* OnlineUserTableViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -172,6 +180,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = Q4N89QR649;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -261,9 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				79A5038C1DCE01D100BD126B /* LoginViewController.swift in Sources */,
+				79A5039A1DCE653900BD126B /* OnlineUserTableViewController.swift in Sources */,
 				7939EDE51DCD170300E09AB9 /* ViewController.swift in Sources */,
 				7939EDE31DCD170300E09AB9 /* AppDelegate.swift in Sources */,
 				79A503921DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift in Sources */,
+				79A503981DCE651100BD126B /* GroceryListTableViewController.swift in Sources */,
 				79A503901DCE06CB00BD126B /* LoginButtonStyle.swift in Sources */,
 				79A503951DCE308000BD126B /* Constants.swift in Sources */,
 			);
@@ -389,6 +404,7 @@
 			baseConfigurationReference = 29E057CFE2A364545B0DEBE9 /* Pods-Grocer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Grocer/Grocer.entitlements;
 				DEVELOPMENT_TEAM = Q4N89QR649;
 				INFOPLIST_FILE = Grocer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -403,6 +419,7 @@
 			baseConfigurationReference = 26170E4C3D96E11AAE4DF9B6 /* Pods-Grocer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Grocer/Grocer.entitlements;
 				DEVELOPMENT_TEAM = Q4N89QR649;
 				INFOPLIST_FILE = Grocer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

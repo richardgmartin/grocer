@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -18,7 +19,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let attributes = [NSForegroundColorAttributeName: UIColor.black]
+        let attributes = [NSForegroundColorAttributeName: UIColor.darkGray]
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: attributes)
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: attributes)
         
@@ -32,6 +33,38 @@ class LoginViewController: UIViewController {
     }
     
 
+    @IBAction func createAccountButtonTapped(_ sender: LoginButton) {
+        
+        // alert controller requesting email address and password for new account creation
+        let alert = UIAlertController(title: "Create Account", message: "Create Grocer Account", preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { action in
+            let emailField = alert.textFields![0]
+            let passwordField = alert.textFields![1]
+            
+            FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
+                if error == nil {
+                    FIRAuth.auth()?.signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: nil)
+                }
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        
+        alert.addTextField { (textEmail) in
+            textEmail.placeholder = "Enter your email"
+        }
+        
+        alert.addTextField { (textPassword) in
+            textPassword.isSecureTextEntry = true
+            textPassword.placeholder = "Enter your password"
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+        
+    }
 
 
 }
