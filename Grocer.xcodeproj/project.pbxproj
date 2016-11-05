@@ -14,6 +14,10 @@
 		7939EDEA1DCD170300E09AB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7939EDE91DCD170300E09AB9 /* Assets.xcassets */; };
 		7939EDED1DCD170300E09AB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7939EDEB1DCD170300E09AB9 /* LaunchScreen.storyboard */; };
 		7939EDF71DCD204F00E09AB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7939EDF61DCD204F00E09AB9 /* GoogleService-Info.plist */; };
+		79A5038C1DCE01D100BD126B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A5038B1DCE01D100BD126B /* LoginViewController.swift */; };
+		79A503901DCE06CB00BD126B /* LoginButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A5038F1DCE06CB00BD126B /* LoginButtonStyle.swift */; };
+		79A503921DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A503911DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift */; };
+		79A503951DCE308000BD126B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A503941DCE308000BD126B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		7939EDEC1DCD170300E09AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7939EDEE1DCD170300E09AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7939EDF61DCD204F00E09AB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		79A5038B1DCE01D100BD126B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		79A5038F1DCE06CB00BD126B /* LoginButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButtonStyle.swift; sourceTree = "<group>"; };
+		79A503911DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailPasswordTextFieldStyle.swift; sourceTree = "<group>"; };
+		79A503941DCE308000BD126B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,15 +80,51 @@
 		7939EDE11DCD170300E09AB9 /* Grocer */ = {
 			isa = PBXGroup;
 			children = (
+				79A503961DCE33E000BD126B /* layouts */,
+				79A5038D1DCE01D900BD126B /* controllers */,
+				79A5038E1DCE06A600BD126B /* styles */,
+				79A503931DCE306200BD126B /* utilities */,
 				7939EDE21DCD170300E09AB9 /* AppDelegate.swift */,
 				7939EDE41DCD170300E09AB9 /* ViewController.swift */,
-				7939EDE61DCD170300E09AB9 /* Main.storyboard */,
-				7939EDEB1DCD170300E09AB9 /* LaunchScreen.storyboard */,
 				7939EDE91DCD170300E09AB9 /* Assets.xcassets */,
 				7939EDF61DCD204F00E09AB9 /* GoogleService-Info.plist */,
 				7939EDEE1DCD170300E09AB9 /* Info.plist */,
 			);
 			path = Grocer;
+			sourceTree = "<group>";
+		};
+		79A5038D1DCE01D900BD126B /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79A5038B1DCE01D100BD126B /* LoginViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		79A5038E1DCE06A600BD126B /* styles */ = {
+			isa = PBXGroup;
+			children = (
+				79A5038F1DCE06CB00BD126B /* LoginButtonStyle.swift */,
+				79A503911DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift */,
+			);
+			name = styles;
+			sourceTree = "<group>";
+		};
+		79A503931DCE306200BD126B /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				79A503941DCE308000BD126B /* Constants.swift */,
+			);
+			name = utilities;
+			sourceTree = "<group>";
+		};
+		79A503961DCE33E000BD126B /* layouts */ = {
+			isa = PBXGroup;
+			children = (
+				7939EDE61DCD170300E09AB9 /* Main.storyboard */,
+				7939EDEB1DCD170300E09AB9 /* LaunchScreen.storyboard */,
+			);
+			name = layouts;
 			sourceTree = "<group>";
 		};
 		D62DBC31C8233B4904009FF3 /* Frameworks */ = {
@@ -176,7 +220,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6F22655C6893F2DB688DFE3C /* [CP] Copy Pods Resources */ = {
@@ -216,8 +260,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A5038C1DCE01D100BD126B /* LoginViewController.swift in Sources */,
 				7939EDE51DCD170300E09AB9 /* ViewController.swift in Sources */,
 				7939EDE31DCD170300E09AB9 /* AppDelegate.swift in Sources */,
+				79A503921DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift in Sources */,
+				79A503901DCE06CB00BD126B /* LoginButtonStyle.swift in Sources */,
+				79A503951DCE308000BD126B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +309,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -310,6 +359,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -381,6 +431,7 @@
 				7939EDF31DCD170300E09AB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
