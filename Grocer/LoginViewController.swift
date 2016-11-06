@@ -19,11 +19,18 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // add firebase observer to see if user is already looged in
+        // if true, segue to GroceryListTableViewController
+        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            if user != nil {
+                self.performSegue(withIdentifier: loginToList, sender: nil)
+            }
+        })
+        
+        // adjustments to placeholder text
         let attributes = [NSForegroundColorAttributeName: UIColor.darkGray]
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: attributes)
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: attributes)
-        
-        
     }
 
     
