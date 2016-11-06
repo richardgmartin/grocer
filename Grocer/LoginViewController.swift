@@ -28,8 +28,8 @@ class LoginViewController: UIViewController {
 
     
     @IBAction func loginButtonTapped(_ sender: LoginButton) {
-        
-        
+        FIRAuth.auth()?.signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: nil)
+        performSegue(withIdentifier: loginToList, sender: nil)
     }
     
 

@@ -76,6 +76,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="p1X-OB-OnL" id="Ydb-kl-89u"/>
                         <outlet property="passwordTextField" destination="v1r-Vf-iDR" id="JM4-kl-FsS"/>
+                        <segue destination="U4T-8R-zjw" kind="presentation" identifier="LoginToList" id="55B-fa-puJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
