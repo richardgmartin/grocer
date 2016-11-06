@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2B8531375FE967FC49F855AD /* Pods_Grocer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3E23CFEA8B17C0C8F23470 /* Pods_Grocer.framework */; };
 		7939EDE31DCD170300E09AB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939EDE21DCD170300E09AB9 /* AppDelegate.swift */; };
-		7939EDE51DCD170300E09AB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939EDE41DCD170300E09AB9 /* ViewController.swift */; };
 		7939EDE81DCD170300E09AB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7939EDE61DCD170300E09AB9 /* Main.storyboard */; };
 		7939EDEA1DCD170300E09AB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7939EDE91DCD170300E09AB9 /* Assets.xcassets */; };
 		7939EDED1DCD170300E09AB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7939EDEB1DCD170300E09AB9 /* LaunchScreen.storyboard */; };
@@ -30,7 +29,6 @@
 		4D3E23CFEA8B17C0C8F23470 /* Pods_Grocer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grocer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7939EDDF1DCD170300E09AB9 /* Grocer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grocer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7939EDE21DCD170300E09AB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7939EDE41DCD170300E09AB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7939EDE71DCD170300E09AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7939EDE91DCD170300E09AB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7939EDEC1DCD170300E09AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				79A503961DCE33E000BD126B /* layouts */,
 				79A503931DCE306200BD126B /* utilities */,
 				7939EDE21DCD170300E09AB9 /* AppDelegate.swift */,
-				7939EDE41DCD170300E09AB9 /* ViewController.swift */,
 				7939EDE91DCD170300E09AB9 /* Assets.xcassets */,
 				7939EDF61DCD204F00E09AB9 /* GoogleService-Info.plist */,
 				7939EDEE1DCD170300E09AB9 /* Info.plist */,
@@ -290,7 +287,6 @@
 				79A5038C1DCE01D100BD126B /* LoginViewController.swift in Sources */,
 				79A5039E1DCF7FD800BD126B /* GroceryItem.swift in Sources */,
 				79A5039A1DCE653900BD126B /* OnlineUserTableViewController.swift in Sources */,
-				7939EDE51DCD170300E09AB9 /* ViewController.swift in Sources */,
 				7939EDE31DCD170300E09AB9 /* AppDelegate.swift in Sources */,
 				79A503921DCE076D00BD126B /* EmailPasswordTextFieldStyle.swift in Sources */,
 				79A503981DCE651100BD126B /* GroceryListTableViewController.swift in Sources */,

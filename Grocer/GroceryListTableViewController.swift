@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class GroceryListTableViewController: UITableViewController {
     
@@ -14,6 +15,7 @@ class GroceryListTableViewController: UITableViewController {
     var items: [GroceryItem] = []
     var user: User!
     var userCountBarButtonItem: UIBarButtonItem!
+    let ref = FIRDatabase.database().reference(withPath: "grocery-items")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,11 +84,11 @@ class GroceryListTableViewController: UITableViewController {
     @IBAction func addGroceryItem(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Grocery Item", message: "Add an Item", preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Save", style: .default) { action in
-            let textField = alert.textFields?[0]
-            let groceryItem = GroceryItem(name: (textField?.text)!, addedByUser: self.user.email, completed: false)
-            self.items.append(groceryItem)
-            self.tableView.reloadData()
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            guard let textField = alert.textFields?.first, let text = textField.text else { return }
+            let groceryItem = GroceryItem(name: text, addedByUser: self.user.email, completed: false)
+            let groceryItemRef = self.ref.child(text.lowercased())
+            groceryItemRef.setValue(groceryItem.toAnyObject())
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         
