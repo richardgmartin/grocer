@@ -67,11 +67,6 @@ class LoginViewController: UIViewController {
         
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-        
-        
+        present(alert, animated: true, completion: nil)        
     }
-
-
 }
