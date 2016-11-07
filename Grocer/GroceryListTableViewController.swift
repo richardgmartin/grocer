@@ -26,9 +26,7 @@ class GroceryListTableViewController: UITableViewController {
         userCountBarButtonItem = UIBarButtonItem(title: "1", style: .plain, target: self, action: #selector(userCountButtonDidTouch))
         userCountBarButtonItem.tintColor = UIColor.darkGray
         navigationItem.leftBarButtonItem = userCountBarButtonItem
-        
-        // user = User(uid: "Dude", email: "thedude@dude.com")
-        
+                
         // MARK: Firebase Oberver
         // 1. order database (and tableview) by items completed -> .queryOrdered
         // 2. initiate firebase observer to monitor changes in database values -> .observe

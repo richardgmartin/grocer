@@ -12,3 +12,4 @@ import UIKit
 let SHADOW_GRAY: CGFloat = 120.0/255.0
 let loginToList = "LoginToList"
 let listToUsers = "ListToUsers"
+let userCell = "UserCell"
