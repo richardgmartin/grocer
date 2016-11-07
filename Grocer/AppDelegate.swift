@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         UIApplication.shared.statusBarStyle = .lightContent
+        FIRDatabase.database().persistenceEnabled = true
         return true
     }
 

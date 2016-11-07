@@ -124,11 +124,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="RAH-6p-Apv">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kNh-kZ-oxX">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="addGroceryItem:" destination="NEd-rv-Yd8" id="2eK-DE-pUz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="lRb-Nl-8EM" kind="show" identifier="ListToUsers" id="8CT-Ub-L9q"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8LE-dh-8HZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

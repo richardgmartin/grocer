@@ -16,6 +16,7 @@ class GroceryListTableViewController: UITableViewController {
     var user: User!
     var userCountBarButtonItem: UIBarButtonItem!
     let ref = FIRDatabase.database().reference(withPath: "grocery-items")
+    let userRef = FIRDatabase.database().reference(withPath: "online")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,40 @@ class GroceryListTableViewController: UITableViewController {
         userCountBarButtonItem.tintColor = UIColor.darkGray
         navigationItem.leftBarButtonItem = userCountBarButtonItem
         
-        user = User(uid: "Dude", email: "thedude@dude.com")
+        // user = User(uid: "Dude", email: "thedude@dude.com")
+        
+        // MARK: Firebase Oberver
+        // 1. order database (and tableview) by items completed -> .queryOrdered
+        // 2. initiate firebase observer to monitor changes in database values -> .observe
+        ref.queryOrdered(byChild: "completed").observe(.value, with: { snapshot in
+            var newItems: [GroceryItem] = []
+            for item in snapshot.children {
+                let groceryItem = GroceryItem(snapshot: item as! FIRDataSnapshot)
+                newItems.append(groceryItem)
+            }
+            self.items = newItems
+            self.tableView.reloadData()
+            })
+        
+        // MARK: identify user
+        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            guard let user = user else { return }
+            self.user = User(authData: user)
+            
+            // monitor online user status
+            let currentUserRef = self.userRef.child(self.user.uid)
+            currentUserRef.setValue(self.user.email)
+            currentUserRef.onDisconnectRemoveValue()
+        })
+        
+        // MARK: update user online count
+        userRef.observe(.value, with: { snapshot in
+            if snapshot.exists() {
+                self.userCountBarButtonItem.title = snapshot.childrenCount.description
+            } else {
+                self.userCountBarButtonItem.title = "0"
+            }
+        })
     }
 
     // MARK: UITableView Delegate methods
@@ -54,8 +88,15 @@ class GroceryListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            /* old static way to remove item from array inside app
             items.remove(at: indexPath.row)
             tableView.reloadData()
+            */
+            
+            // MARK: Update Firebase -> Tableview Update
+            // new dynamic way to remove item from firebase and update table view
+            let groceryItem = items[indexPath.row]
+            groceryItem.ref?.removeValue()
         }
     }
     
@@ -66,7 +107,9 @@ class GroceryListTableViewController: UITableViewController {
         
         toggleCellCheckbox(cell: cell, isCompleted: toggledCompletion)
         groceryItem.completed = toggledCompletion
-        tableView.reloadData()
+        
+        // alert firebase of change in completion state
+        groceryItem.ref?.updateChildValues(["completed": toggledCompletion])
     }
     
     func toggleCellCheckbox( cell: UITableViewCell, isCompleted: Bool) {
@@ -101,6 +144,13 @@ class GroceryListTableViewController: UITableViewController {
     }
 
     func userCountButtonDidTouch() {
+        
+        // back bar text
+        let backBar = UIBarButtonItem()
+        backBar.title = "Back"
+        navigationController?.navigationBar.tintColor = .darkGray
+        navigationItem.backBarButtonItem = backBar
+        
         performSegue(withIdentifier: listToUsers, sender: nil)
     }
 }

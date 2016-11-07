@@ -19,8 +19,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // add firebase observer to see if user is already looged in
-        // if true, segue to GroceryListTableViewController
+        // 1. add firebase observer to see if user is already looged in
+        // 2. if true, segue to GroceryListTableViewController
         FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 self.performSegue(withIdentifier: loginToList, sender: nil)
